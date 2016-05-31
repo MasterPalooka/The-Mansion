@@ -1,18 +1,20 @@
-width, height = term.getSize()
-i = 0
-i_max = width*height
-x = 1
-y = 1
-p1 = 0
-p2 = 0
-pad1 = math.ceil(height/2)
+--Code updated from user Chub1337
+-- pastebin.com/TuY3ZZdL
+width, height = term.getSize()            
+i = 0                                       --It sets the variable i as 0
+i_max = width*height                        -- Sets the max of this variable as the max of the multiplication of two variables
+x = 1                                       --Sets the x coordiante of the ball as 1
+y = 1                                       --Sets the y coordinate of the ball as 1
+p1 = 0                                      -- Score of player 1 set to 0
+p2 = 0                                      -- Score of player 2 set to 0
+pad1 = math.ceil(height/2)                  -- Round the height divided by 2 to a whole number
 pad2 = math.ceil(height/2)
 up = false
 right = true
  
 --Functions
 function drawPads()
-        term.setCursorPos(1,pad1-1)
+        term.setCursorPos(1,pad1-1)        --Sets the border line for top part of the board as = symbols
         write("l")
         term.setCursorPos(1,pad1)
         write("l")
@@ -31,7 +33,7 @@ function drawPads()
                 write("=")
         end
        
-        term.setCursorPos(width-1,pad2-1)
+        term.setCursorPos(width-1,pad2-1)  --Sets the border line for the bottom part of the board as symbols
         write("l")
         term.setCursorPos(width-1,pad2)
         write("l")
@@ -52,14 +54,14 @@ function drawPads()
 end
  
 function ball()
-        term.setCursorPos(x,y)
+        term.setCursorPos(x,y)        --Determines the code for if the ball goes up or down
         write(" ")
         if up == true then
                 y = y - 1
         else
                 y = y + 1
         end
-        if right == true then
+        if right == true then          -- Determines the code for the ball hiiting the pads and switching directions
                 if (x == width - 2) then
                         if y == pad2 or y == pad2-1 or y == pad2+1 then
                                 x = x - 1
@@ -160,8 +162,8 @@ y = math.ceil(height/2)
 dir = math.ceil(math.random(0,4))
  
  
-if dir == 1 then
-        up = true
+if dir == 1 then            --The following code determines in which direction the ball starts
+        up = true           -- By using if varaiables it determines the four directions: up, down, left and right
         right = true
 elseif dir == 2 then
         up = true
